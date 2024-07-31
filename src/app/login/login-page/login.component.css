@@ -1,0 +1,15 @@
+body {
+    height: 0 !important;
+}
+
+p,
+input,
+a,
+button {
+    font-family: 'Athiti';
+}
+
+img {
+    width: 15%;
+    height: 15%;
+}

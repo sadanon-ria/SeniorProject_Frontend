@@ -1,0 +1,26 @@
+
+<div class="authentication-card-container" fxLayout="column" fxLayoutAlign="center">
+    <mat-card class="authentication-card">
+        <div class="logo">
+            <img src="https://pbs.twimg.com/media/Dq07-cvVYAEIs1J.png">
+        </div>
+        <!-- <mat-card-header class="l1"> <mat-card-title>TULP</mat-card-title></mat-card-header> -->
+        <mat-card-content>
+            <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center stretch">
+                <mat-form-field class="user">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" />
+                </mat-form-field>
+                <mat-form-field class="pass">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" />
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="buttonlog" mat-raised-button color="primary" (click)="onSubmit()">
+                Login
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,225 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #51f756, #0008ff);
+    /* background-color: rgb(0, 8, 255); */
+    align-items: center;
+    padding: 0.5rem;
+
+    & img {
+        height: 50px;
+        width: auto;
+    }
+
+    & .menu {
+        display: flex;
+        list-style: none;
+
+        & li {
+            /* font-size: larger; */
+            margin: 0 2rem;
+            color: #ffffff;
+            text-decoration: none
+        }
+
+    }
+}
+body {
+    /* background-image: linear-gradient(to right, #21B699, #5c9afefb); */
+    background-color: rgb(130, 232, 255)
+    /* #21B699; */
+    /* padding: 5rem; */
+}
+
+/* test */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(to top right, rgb(72, 1, 252) 0%, rgb(160, 249, 36) 100%);
+    color: #000000;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    /* margin-left: 10%; */
+    position: absolute;
+    transform: translate(75%, 5%);
+    font-size: large;
+    box-sizing: border-box;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 350px;
+    border-radius: 3px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center; */
+    
+    .a1{
+        /* margin-left: 20px; */
+        color: #ffffff;
+        font-size: larger;
+        /* width: 120%; */
+        justify-content: center;
+        margin-bottom: 20px;
+
+    }
+    .a2 {
+        color: #ffffff;
+        font-size: larger;
+        /* width: 120%; */
+        justify-content: center;
+        margin-bottom: 20px;
+
+    }
+    .a3 {
+        color: #ffffff;
+        font-size: larger;
+        /* width: 120%; */
+        justify-content: center;
+        margin-bottom: 20px;
+
+    }
+    .a4 {
+        color: #ffffff;
+        font-size: larger;
+        /* width: 120%; */
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .b1 {
+        margin-top: 5px;
+    }
+    .b2 {
+        margin-top: 5px;
+    }
+    .b3 {
+        margin-top: 5px;
+    }
+    .b4 {
+        margin-top: 15px;
+    }
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 260px;
+    border-radius: 3px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+
+.title {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+    text-align: center;
+}
+
+h1 {
+    /* font-size: 16px;
+    font-weight: 300; */
+    text-align: center;
+    color: #000000;
+    margin-top: 1rem;
+    font-family: "Trirong", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.dropzone {
+    width: 100px;
+    height: 80px;
+    border: 1px dashed #4e4e4e;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.upload-icon {
+    margin: 25px 2px 2px 2px;
+}
+
+.upload-input {
+    position: relative;
+    top: -62px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.btn {
+    display: block;
+    width: 140px;
+    height: 40px;
+    /* darkmagenta */
+    background: rgb(9, 255, 239);
+    color: #000000;
+    border-radius: 3px;
+    border: 0;
+    /* hotpink */
+    box-shadow: 0 3px 0 0 rgb(81, 0, 255); 
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: rgba(77, 245, 51, 0.721);
+    box-shadow: 0 3px 0 0 rgb(28, 255, 156);
+}
+
+.example-button-row{
+    margin-top: -20px;
+    text-align: center;
+    & .bt1{
+        margin-right: 20px;
+    }
+}
+.logout {
+    float: left;
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
+
+/* .a1 {
+    text-align: center;
+    justify-content: center;
+} */
+/* .example-button-row {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+} */

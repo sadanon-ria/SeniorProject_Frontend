@@ -1,0 +1,15 @@
+
+h1 {
+    text-align: center;
+    margin: 0rem 1rem;
+}
+
+.table {
+    padding: 0rem 1rem;
+}
+
+.search {
+    display: flex;
+    width: 20%;
+    margin-left: 79%;
+}

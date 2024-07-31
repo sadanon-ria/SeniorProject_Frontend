@@ -1,0 +1,112 @@
+<body>
+<nav>
+    <div class="logo">
+        <img src="https://pbs.twimg.com/media/Dq07-cvVYAEIs1J.png">
+    </div>
+    <ul class="menu">
+        <li><a class="detail-Bt" (click)="detailBt()">detail</a></li>
+        <li><a class="upload-Bt" (click)="uploadBt()">upload</a></li>
+        <li><a class="history-Bt" (click)="historyBt()">history</a></li>
+        <li><a class="express-Bt" (click)="expressBt()">express</a></li>
+        <li *ngIf="roles=='addmin'" ><a class="adduser-Bt" (click)="adduserBt()">add_user</a></li>
+        <li *ngIf="roles=='addmin'" ><a class="summary-Bt" (click)="summaryBt()">summary</a></li>
+        
+        <button mat-icon-button [matMenuTriggerFor]="menus" class="logout"><mat-icon>account_circle</mat-icon></button>
+        <mat-menu #menus="matMenu">
+            <!-- เพิ่มข้อมูล username -->
+            <div class="firstname">{{firstname}} {{lastname}}</div>
+            <div class="roles">{{roles}}</div>
+            <button mat-menu-item (click)="logout()">
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </ul>
+</nav>
+
+
+    <div class="page-container">
+        <h1>บันทึกการรับพัสดุ</h1>
+
+        <mat-form-field class="search">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="ค้นหารายชื่อ" #input>
+        </mat-form-field>
+        
+        <div class="mat-elevation-z8 table">
+            <table mat-table [dataSource]="dataDisplay ">
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef>วันที่ (ว/ด/ป)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-overflow"> ชื่อ </th>
+                    <td mat-cell *matCellDef="let element" class="text-overflow"> {{element.name}} </td>
+                </ng-container>
+            
+                <!-- Weight Column -->
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef class="text-overflow"> เบอร์โทร </th>
+                    <td mat-cell *matCellDef="let element" class="text-overflow"> {{element.phone}} </td>
+                </ng-container>
+            
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="express">
+                    <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8"> express </th>
+                    <td mat-cell *matCellDef="let element" class="mat-elevation-z8"> {{element.express}} </td>
+                </ng-container>
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="parcel">
+                    <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8"> parcel </th>
+                    <td mat-cell *matCellDef="let element" class="mat-elevation-z8"> {{element.parcel}} </td>
+                </ng-container>
+            
+            
+                <tr mat-header-row *matHeaderRowDef="display"></tr>
+                <tr mat-row *matRowDef="let row; columns: display;"></tr>
+            
+            </table>
+            <!-- <table mat-table [dataSource]="dataDisplay">
+        
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> วันที่ </th>
+                    <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+                </ng-container>
+        
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ชื่อ </th>
+                    <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> เบอร์โทร </th>
+                    <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+                </ng-container>
+        
+                <ng-container matColumnDef="express">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ขนส่ง </th>
+                    <td mat-cell *matCellDef="let row"> {{row.express}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="parcel">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> จำนวนพัสดุ </th>
+                    <td mat-cell *matCellDef="let row"> {{row.parcel}} </td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="dataDisplay"></tr>
+                <tr mat-row *matRowDef="let row; columns: dataDisplay;"></tr>
+        
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+            </table> -->
+        
+            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </div>
+</body>

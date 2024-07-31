@@ -1,0 +1,113 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+<body>
+<nav>
+    <div class="logo">
+        <img src="https://pbs.twimg.com/media/Dq07-cvVYAEIs1J.png">
+    </div>
+    <ul class="menu">
+        <li><a class="detail-Bt" (click)="detailBt()">detail</a></li>
+        <li><a class="upload-Bt" (click)="uploadBt()">upload</a></li>
+        <li><a class="history-Bt" (click)="historyBt()">history</a></li>
+        <li><a class="express-Bt" (click)="expressBt()">express</a></li>
+        <li *ngIf="roles=='addmin'"><a class="adduser-Bt" (click)="adduserBt()">add_user</a></li>
+        <li *ngIf="roles=='addmin'"><a class="summary-Bt" (click)="summaryBt()">summary</a></li>
+        
+        <button mat-icon-button [matMenuTriggerFor]="menus" class="logout"><mat-icon>account_circle</mat-icon></button>
+        <mat-menu #menus="matMenu">
+            <!-- เพิ่มข้อมูล username -->
+            <div class="firstname">{{firstname}} {{lastname}}</div>
+            <div class="roles">{{roles}}</div>
+            <button mat-menu-item (click)="logout()">
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </ul>
+</nav>
+
+
+    <div class="page-container">
+        <h1>บันทึกข้อมูลพัสดุ</h1>
+
+        <div *ngIf="!name" class="frame">
+            <div class="center">
+                <div class="title">
+                    <h1>Drop file to upload</h1>
+                </div>
+        
+                <div class="dropzone">
+                    <img *ngIf="!imageUrl" src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                    <img *ngIf="imageUrl" [src]="imageUrl" alt="Selected Image" style="width: 100px; height: 100px;">
+                    <!-- <input type="file" class="upload-input" /> -->
+                </div>
+                <input class="showimg" id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/*"/>
+
+                <button type="button" class="btn" name="uploadbutton" (click)="onUpload()" >Upload file</button>
+            </div>
+        </div>
+
+        <div *ngIf="name">
+            <div class="card">
+                <div class="row g-3 align-items-center a1">
+                    <div class="col-auto">
+                        <label class="col-form-label">ลำดับที่</label>
+                    </div>
+                
+                    <div class="col-auto b1">
+                        <input [(ngModel)]="number" placeholder="กรุณาใส่ลำดับ" value="number" class="w-100 h2 b1">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center a2">
+                    <div class="col-auto">
+                        <label class="col-form-label">เบอร์โทร</label>
+                    </div>
+                
+                    <div class="col-auto b2">
+                        <input [(ngModel)]="phone" placeholder="กรุณาใส่เบอร์โทร" value="phone" class="w-100 h2 b1">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center a3">
+                    <div class="col-auto">
+                        <label class="col-form-label">ชื่อ</label>
+                    </div>
+                
+                    <div class="col-auto b3">
+                        <input [(ngModel)]="name" placeholder="กรุณาใส่ชื่อของคุณ" value="name" class="w-100 h2 b1">
+                    </div>
+                </div>
+
+                <div class="row g-3 align-items-center a4">
+                    <div class="col-auto">
+                        <label class="col-form-label">บริษัทขนส่ง</label>
+                    </div>
+                
+                    <div class="col-auto b4">
+                        <mat-form-field class="company" appearance="fill">
+                            <mat-select [(ngModel)]="selectedCompany" placeholder="กรุณาเลือกบริษัทขนส่งของคุณ" name="company">
+                                <mat-option *ngFor="let company of express" [value]="company.value">{{company.viewValue}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- <input [(ngModel)]="company" placeholder="กรุณาใส่เบอร์โทร" value="company" class="w-100 h2 b1"> -->
+                    </div>
+                </div>
+                <section>
+                    <div class="example-button-row">
+                        <button class="bt1" mat-raised-button (click)="close()">ยกเลิก</button>
+                        <button class="bt2" mat-raised-button color="primary" (click)="addOCR()">ยืนยัน</button>
+                    </div>
+                </section>
+
+            </div>
+
+            
+
+        </div>
+
+        
+    </div>
+</body>

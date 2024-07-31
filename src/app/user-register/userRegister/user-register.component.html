@@ -1,0 +1,62 @@
+
+<nav>
+    <div class="logo">
+        <img src="https://pbs.twimg.com/media/Dq07-cvVYAEIs1J.png">
+    </div>
+    <ul class="menu">
+        <li><a class="detail-Bt" (click)="detailBt()">detail</a></li>
+        <li><a class="upload-Bt" (click)="uploadBt()">upload</a></li>
+        <li><a class="history-Bt" (click)="historyBt()">history</a></li>
+        <li><a class="express-Bt" (click)="expressBt()">express</a></li>
+        <li *ngIf="roless=='addmin'"><a class="adduser-Bt" (click)="adduserBt()">add_user</a></li>
+        <li *ngIf="roless=='addmin'"><a class="summary-Bt" (click)="summaryBt()">summary</a></li>
+        
+        <button mat-icon-button [matMenuTriggerFor]="menus" class="logout"><mat-icon>account_circle</mat-icon></button>
+        <mat-menu #menus="matMenu">
+            <!-- เพิ่มข้อมูล username -->
+            <div class="firstname">{{firstname}} {{lastname}}</div>
+            <div class="roless">{{roless}}</div>
+            <button mat-menu-item (click)="logout()">
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </ul>
+</nav>
+<body>
+    <div class="authentication-card-container" fxLayout="column" fxLayoutAlign="center">
+        <mat-card class="authentication-card box">
+            <mat-card-header class="title">
+                <mat-card-title>Register</mat-card-title></mat-card-header>
+            <mat-card-content class="form">
+                <form [formGroup]="registerForm" fxLayout="column" fxLayoutAlign="center stretch">
+                    <mat-form-field class="user">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username" />
+                    </mat-form-field>
+                    <mat-form-field class="pass">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password" />
+                    </mat-form-field>
+                    <mat-form-field class="first">
+                        <mat-label>firstname</mat-label>
+                        <input matInput formControlName="firstname" />
+                    </mat-form-field>
+                    <mat-form-field class="last">
+                        <mat-label>lastname</mat-label>
+                        <input matInput formControlName="lastname" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="role">
+                        <mat-select formControlName="roles" placeholder="กรุณาเลือกตำแหน่ง">
+                            <mat-option *ngFor="let role of roles" [value]="role.value">{{role.viewValue}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="onSubmit()">
+                    add user
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</body>

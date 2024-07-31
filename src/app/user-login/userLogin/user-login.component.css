@@ -1,0 +1,55 @@
+.logo img {
+    margin-bottom: 5px;
+    height: 150px;
+    width: auto;
+}
+.authentication-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: rgb(0, 255, 136); */
+    background-image: url('https://static.trueplookpanya.com/cmsblog/1313/81313/banner_file.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.authentication-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 600px;
+    padding: 20px;
+    font-size: large;
+    box-sizing: border-box;
+
+    & .buttonlog{
+        height: 50px;
+        width: 200px;
+        font-size: large;
+    }
+}
+.mat-card-actions {
+    margin-top: 20px;
+}
+
+/* .l1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0011ff;
+    text-transform: uppercase;
+} */
+
+.user {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.pass {
+    width: 100%;
+}
